@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Resume Platform - Mobile UI/UX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .phone-frame {
+            width: 320px;
+            height: 640px;
+            background: #1f2937;
+            border-radius: 24px;
+            padding: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        .status-bar {
+            height: 24px;
+            background: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .screen-content {
+            height: calc(100% - 24px);
+            overflow-y: auto;
+            background: white;
+        }
+        .mockup-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .screen-label {
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            font-size: 14px;
+        }
+        .scrollbar-hide {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+<div class="mockup-grid">
+
+<!-- 1. Welcome/Accessibility Detection -->
+<div>
+    <div class="screen-label">Welcome & Accessibility Setup</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <div class="text-center mb-8">
+                    <h1 class="text-2xl font-bold text-blue-600 mb-2">ResumeAccess</h1>
+                    <p class="text-gray-600">Inclusive Employment Platform</p>
+                </div>
+                
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h2 class="text-lg font-semibold mb-2 text-gray-800">Welcome!</h2>
+                    <p class="text-gray-700 text-sm">Let's customize the platform for you</p>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-medium text-gray-800">Do you use accessibility tools?</h3>
+                    
+                    <label class="flex items-center p-3 border border-gray-200 rounded-lg">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <div>
+                            <div class="font-medium text-sm">Screen Reader</div>
+                            <div class="text-xs text-gray-600">NVDA, JAWS, VoiceOver</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-3 border border-gray-200 rounded-lg">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <div>
+                            <div class="font-medium text-sm">Voice Control</div>
+                            <div class="text-xs text-gray-600">Speech commands</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-3 border border-gray-200 rounded-lg">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <div>
+                            <div class="font-medium text-sm">Switch Device</div>
+                            <div class="text-xs text-gray-600">External switches</div>
+                        </div>
+                    </label>
+
+                    <label class="flex items-center p-3 border border-gray-200 rounded-lg">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <div>
+                            <div class="font-medium text-sm">High Contrast</div>
+                            <div class="text-xs text-gray-600">Large text, high contrast</div>
+                        </div>
+                    </label>
+                </div>
+
+                <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium mt-6">
+                    Continue Setup
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 2. Interface Preferences -->
+<div>
+    <div class="screen-label">Interface Preferences</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-bold text-gray-800 mb-1">Choose Interface</h2>
+                    <p class="text-gray-600 text-sm">Select what works best for you</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="border-2 border-blue-500 bg-blue-50 rounded-lg p-4">
+                        <h3 class="font-semibold mb-1">Audio-First Interface</h3>
+                        <p class="text-gray-700 text-sm mb-3">Voice commands and audio feedback</p>
+                        <div class="flex items-center text-blue-600 text-sm">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span>Recommended</span>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-semibold mb-1">Visual Interface</h3>
+                        <p class="text-gray-700 text-sm">Traditional visual with enhancements</p>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-lg p-4">
+                        <h3 class="font-semibold mb-1">Mixed Interface</h3>
+                        <p class="text-gray-700 text-sm">Visual and audio combined</p>
+                    </div>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                    <h3 class="font-semibold text-sm">Additional Options</h3>
+                    
+                    <label class="flex items-center text-sm">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3" checked>
+                        <span>Voice confirmation for actions</span>
+                    </label>
+
+                    <label class="flex items-center text-sm">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <span>Simplified language</span>
+                    </label>
+
+                    <label class="flex items-center text-sm">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <span>Extended response time</span>
+                    </label>
+                </div>
+
+                <div class="flex space-x-3 mt-8">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium">Back</button>
+                    <button class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 3. Main Dashboard -->
+<div>
+    <div class="screen-label">Main Dashboard</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <header class="mb-6">
+                    <h1 class="text-xl font-bold text-gray-800 mb-1">Welcome, Alex</h1>
+                    <p class="text-gray-600 text-sm">What would you like to do today?</p>
+                </header>
+
+                <div class="space-y-4">
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                                    <path fill-rule="evenodd" d="M4 5a2 2 0 012-2h8a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V5z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Create Resume</h2>
+                                <p class="text-gray-600 text-xs">Build your professional resume</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Start Resume Builder</button>
+                    </div>
+
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Find Jobs</h2>
+                                <p class="text-gray-600 text-xs">Search and apply for positions</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Browse Jobs</button>
+                    </div>
+
+                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Application Status</h2>
+                                <p class="text-gray-600 text-xs">Track your applications</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-2 px-3 rounded-lg font-medium text-sm">View Applications</button>
+                    </div>
+
+                    <div class="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Help & Support</h2>
+                                <p class="text-gray-600 text-xs">Get assistance and tutorials</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Get Help</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 4. Resume Builder - Personal Info -->
+<div>
+    <div class="screen-label">Resume Builder - Personal Info</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <div class="flex items-center mb-3">
+                        <button class="mr-3 p-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <h1 class="text-lg font-bold text-gray-800">Personal Information</h1>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 20%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Step 1 of 5</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Full Name</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your full name">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Email Address</label>
+                        <input type="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="your.email@example.com">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Phone Number</label>
+                        <input type="tel" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="(555) 123-4567">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">City, State</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="City, State">
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <h3 class="font-medium text-gray-800 mb-2 text-sm">Accessibility Options</h3>
+                        <label class="flex items-center mb-1">
+                            <input type="checkbox" class="w-3 h-3 text-blue-600 mr-2">
+                            <span class="text-gray-700 text-xs">Include accessibility needs</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-3 h-3 text-blue-600 mr-2">
+                            <span class="text-gray-700 text-xs">Request accommodations</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-2 px-3 rounded-lg font-medium text-sm">Save & Exit</button>
+                    <button class="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 5. Resume Builder - Work Experience -->
+<div>
+    <div class="screen-label">Resume Builder - Work Experience</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <div class="flex items-center mb-3">
+                        <button class="mr-3 p-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <h1 class="text-lg font-bold text-gray-800">Work Experience</h1>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 40%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Step 2 of 5</p>
+                </div>
+
+                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3 mb-4">
+                    <h3 class="font-medium text-gray-800 mb-1 text-sm">Voice Input Available</h3>
+                    <p class="text-gray-700 text-xs mb-2">Speak your experience instead of typing</p>
+                    <button class="bg-yellow-600 text-white px-3 py-2 rounded-lg font-medium text-xs">Use Voice Input</button>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Job Title</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Customer Service Rep">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Company Name</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., ABC Company">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-medium text-gray-700 mb-1 text-sm">Start Date</label>
+                            <input type="month" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-gray-700 mb-1 text-sm">End Date</label>
+                            <input type="month" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <label class="flex items-center mt-1">
+                                <input type="checkbox" class="w-3 h-3 text-blue-600 mr-1">
+                                <span class="text-xs text-gray-600">Current job</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Job Description</label>
+                        <textarea rows="3" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Describe your responsibilities..."></textarea>
+                    </div>
+                </div>
+
+                <div class="flex space-x-2 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-2 px-2 rounded-lg font-medium text-xs">Skip</button>
+                    <button class="flex-1 bg-green-600 text-white py-2 px-2 rounded-lg font-medium text-xs">Add More</button>
+                    <button class="flex-1 bg-blue-600 text-white py-2 px-2 rounded-lg font-medium text-xs">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 6. Resume Builder - Education -->
+<div>
+    <div class="screen-label">Resume Builder - Education</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <div class="flex items-center mb-3">
+                        <button class="mr-3 p-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <h1 class="text-lg font-bold text-gray-800">Education</h1>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Step 3 of 5</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Education Level</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Select education level</option>
+                            <option value="high-school">High School</option>
+                            <option value="some-college">Some College</option>
+                            <option value="associate">Associate Degree</option>
+                            <option value="bachelor">Bachelor's</option>
+                            <option value="master">Master's</option>
+                            <option value="trade">Trade Certificate</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">School Name</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., State University">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Field of Study</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., Business">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-medium text-gray-700 mb-1 text-sm">Start Year</label>
+                            <input type="number" min="1950" max="2030" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="2018">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-gray-700 mb-1 text-sm">End Year</label>
+                            <input type="number" min="1950" max="2030" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="2022">
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                        <h3 class="font-medium text-gray-800 mb-2 text-sm">Additional Info (Optional)</h3>
+                        <label class="flex items-center mb-1">
+                            <input type="checkbox" class="w-3 h-3 text-blue-600 mr-2">
+                            <span class="text-gray-700 text-xs">Include GPA (3.5+)</span>
+                        </label>
+                        <label class="flex items-center mb-1">
+                            <input type="checkbox" class="w-3 h-3 text-blue-600 mr-2">
+                            <span class="text-gray-700 text-xs">Include honors</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="checkbox" class="w-3 h-3 text-blue-600 mr-2">
+                            <span class="text-gray-700 text-xs">Include coursework</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-2 px-3 rounded-lg font-medium text-sm">Skip</button>
+                    <button class="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 7. Resume Builder - Skills -->
+<div>
+    <div class="screen-label">Resume Builder - Skills</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <div class="flex items-center mb-3">
+                        <button class="mr-3 p-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <h1 class="text-lg font-bold text-gray-800">Skills & Abilities</h1>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Step 4 of 5</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                    <h3 class="font-medium text-gray-800 mb-1 text-sm">Skill Suggestions</h3>
+                    <p class="text-gray-700 text-xs mb-2">Based on your experience:</p>
+                    <div class="flex flex-wrap gap-1">
+                        <button class="bg-white border border-green-300 text-green-700 px-2 py-1 rounded-full text-xs">Customer Service</button>
+                        <button class="bg-white border border-green-300 text-green-700 px-2 py-1 rounded-full text-xs">Communication</button>
+                        <button class="bg-white border border-green-300 text-green-700 px-2 py-1 rounded-full text-xs">Problem Solving</button>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Technical Skills</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Microsoft Office, Data Entry">
+                        <p class="text-xs text-gray-600 mt-1">Separate with commas</p>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Soft Skills</label>
+                        <input type="text" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Leadership, Time Management">
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Languages</label>
+                        <div class="flex space-x-2">
+                            <input type="text" class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Language">
+                            <select class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                                <option>Native</option>
+                                <option>Fluent</option>
+                                <option>Basic</option>
+                            </select>
+                        </div>
+                        <button class="mt-2 text-blue-600 text-xs">+ Add Language</button>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Certifications</label>
+                        <textarea rows="2" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="List certifications..."></textarea>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-2 px-3 rounded-lg font-medium text-sm">Skip</button>
+                    <button class="flex-1 bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 8. Resume Builder - Review & Generate -->
+<div>
+    <div class="screen-label">Resume Builder - Review</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <div class="flex items-center mb-3">
+                        <button class="mr-3 p-1">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                        <h1 class="text-lg font-bold text-gray-800">Review Resume</h1>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-600 h-2 rounded-full" style="width: 100%"></div>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Step 5 of 5</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                    <h3 class="font-medium text-gray-800 mb-1 text-sm">Resume Complete!</h3>
+                    <p class="text-gray-700 text-xs">Review before downloading</p>
+                </div>
+
+                <div class="space-y-3">
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <h3 class="font-semibold text-gray-800 mb-1 text-sm">Personal Information ✓</h3>
+                        <p class="text-gray-600 text-xs">John Smith • john@email.com</p>
+                        <button class="text-blue-600 text-xs mt-1">Edit Section</button>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <h3 class="font-semibold text-gray-800 mb-1 text-sm">Work Experience ✓</h3>
+                        <p class="text-gray-600 text-xs">1 job • Customer Service Rep</p>
+                        <button class="text-blue-600 text-xs mt-1">Edit Section</button>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <h3 class="font-semibold text-gray-800 mb-1 text-sm">Education ✓</h3>
+                        <p class="text-gray-600 text-xs">High School • State High School</p>
+                        <button class="text-blue-600 text-xs mt-1">Edit Section</button>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <h3 class="font-semibold text-gray-800 mb-1 text-sm">Skills ✓</h3>
+                        <p class="text-gray-600 text-xs">Customer Service, Communication</p>
+                        <button class="text-blue-600 text-xs mt-1">Edit Section</button>
+                    </div>
+                </div>
+
+                <div class="mt-6 space-y-3">
+                    <h3 class="font-semibold text-gray-800 text-sm">Download Options</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">PDF</button>
+                        <button class="bg-green-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Word</button>
+                    </div>
+                    <button class="w-full bg-purple-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Start Job Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 9. Job Preferences Setup -->
+<div>
+    <div class="screen-label">Job Preferences Setup</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-4">
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Job Preferences</h1>
+                    <p class="text-gray-600 text-sm">Set your preferences so we can find the right jobs for you</p>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4">
+                    <h3 class="font-medium text-gray-800 mb-1 text-sm">How It Works</h3>
+                    <p class="text-gray-700 text-xs">We'll automatically search, analyze, and apply to jobs that match your preferences. You'll only hear from us when you get interview invitations!</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Job Types (Select all that interest you)</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3" checked>
+                                <span class="text-sm">Customer Service</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Data Entry</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Administrative Assistant</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Virtual Assistant</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Work Location</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option>Remote Only</option>
+                            <option>Hybrid (Remote + Office)</option>
+                            <option>On-site within 10 miles</option>
+                            <option>On-site within 25 miles</option>
+                            <option>Any location</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Salary Range (per hour)</label>
+                        <div class="grid grid-cols-2 gap-3">
+                            <input type="number" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Min: $15">
+                            <input type="number" class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Max: $25">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Schedule Preferences</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Full-time (40+ hours/week)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3" checked>
+                                <span class="text-sm">Part-time (20-39 hours/week)</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Flexible hours</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                        <h3 class="font-medium text-gray-800 mb-2 text-sm">Accessibility Requirements</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3" checked>
+                                <span class="text-sm">Screen reader compatible work</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Wheelchair accessible workplace</span>
+                            </label>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                                <span class="text-sm">Quiet work environment</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium text-sm mt-6">Start Auto Job Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 10. Automation Consent -->
+<div>
+    <div class="screen-label">Automation Consent</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <div class="text-center mb-6">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Ready to Start!</h1>
+                    <p class="text-gray-600 text-sm">Review what we'll do automatically for you</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-3 text-sm">What We'll Do Automatically:</h3>
+                    <ul class="space-y-2 text-xs text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Search for jobs matching your preferences 24/7</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Analyze job descriptions for accessibility features</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Customize your resume for each application</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Submit applications to suitable positions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Track application status and follow up</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 mr-2">✓</span>
+                            <span>Notify you immediately about interviews</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">You Stay in Control:</h3>
+                    <ul class="space-y-1 text-xs text-gray-700">
+                        <li>• Pause or stop automation anytime</li>
+                        <li>• Review and approve high-priority applications</li>
+                        <li>• Update preferences whenever you want</li>
+                        <li>• Block specific companies or job types</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-semibold text-gray-800 text-sm">Automation Settings</h3>
+                    
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1 text-sm">Application Frequency</label>
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                            <option>Conservative (5-10 per week)</option>
+                            <option selected>Moderate (10-20 per week)</option>
+                            <option>Aggressive (20+ per week)</option>
+                        </select>
+                    </div>
+
+                    <label class="flex items-center">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3">
+                        <span class="text-sm">Require my approval for applications over $20/hour</span>
+                    </label>
+
+                    <label class="flex items-center">
+                        <input type="checkbox" class="w-4 h-4 text-blue-600 mr-3" checked>
+                        <span class="text-sm">Send me daily summary emails</span>
+                    </label>
+                </div>
+
+                <div class="flex space-x-3 mt-8">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium text-sm">Review Settings</button>
+                    <button class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium text-sm">Start Automation</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 11. Automation Active Dashboard -->
+<div>
+    <div class="screen-label">Automation Dashboard</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h1 class="text-xl font-bold text-gray-800">Auto Job Search</h1>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                            <span class="text-sm text-green-600 font-medium">Active</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">We're working 24/7 to find you the perfect job!</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 mb-6">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">47</div>
+                        <div class="text-xs text-gray-600">Applications Sent</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-600">8</div>
+                        <div class="text-xs text-gray-600">Responses</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-600">3</div>
+                        <div class="text-xs text-gray-600">Interviews</div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-gray-800 text-sm">🎉 Interview Invitation!</h3>
+                            <span class="text-xs text-gray-500">2 hours ago</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-2">Customer Service Rep at TechCorp Inc.</p>
+                        <p class="text-xs text-gray-600 mb-3">Interview scheduled for tomorrow at 2:00 PM</p>
+                        <button class="w-full bg-green-600 text-white py-2 px-3 rounded-lg font-medium text-sm">View Interview Details</button>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-gray-800 text-sm">New Application Sent</h3>
+                            <span class="text-xs text-gray-500">1 hour ago</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-1">Data Entry Specialist at DataSolutions</p>
+                        <p class="text-xs text-gray-600">95% match • Remote work • $18/hour</p>
+                    </div>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-gray-800 text-sm">Application Under Review</h3>
+                            <span class="text-xs text-gray-500">Today</span>
+                        </div>
+                        <p class="text-sm text-gray-700 mb-1">Virtual Assistant at StartupCo</p>
+                        <p class="text-xs text-gray-600">Requires approval • $22/hour • Part-time</p>
+                        <div class="flex space-x-2 mt-3">
+                            <button class="flex-1 bg-green-600 text-white py-2 px-3 rounded-lg font-medium text-xs">Approve & Send</button>
+                            <button class="flex-1 bg-gray-200 text-gray-800 py-2 px-3 rounded-lg font-medium text-xs">Skip</button>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="font-semibold text-gray-800 text-sm">System Update</h3>
+                            <span class="text-xs text-gray-500">Today</span>
+                        </div>
+                        <p class="text-sm text-gray-700">Found 12 new job postings matching your preferences. Analyzing compatibility...</p>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium text-sm">Pause Automation</button>
+                    <button class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium text-sm">Update Preferences</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 12. Interview Notification -->
+<div>
+    <div class="screen-label">Interview Notification</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-2xl font-bold text-gray-800 mb-2">Interview Request!</h1>
+                    <p class="text-gray-600 text-sm">Great news! An employer wants to interview you</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-3 text-sm">Interview Details</h3>
+                    <div class="space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Position:</span>
+                            <span class="font-medium">Customer Service Representative</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Company:</span>
+                            <span class="font-medium">TechCorp Inc.</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Date & Time:</span>
+                            <span class="font-medium">Tomorrow, 2:00 PM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Format:</span>
+                            <span class="font-medium">Video Call (Zoom)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Duration:</span>
+                            <span class="font-medium">30 minutes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">Why You're a Great Match</h3>
+                    <ul class="space-y-1 text-xs text-gray-700">
+                        <li>• Your customer service experience aligns perfectly</li>
+                        <li>• Remote work available (matches your preference)</li>
+                        <li>• Screen reader compatible systems</li>
+                        <li>• Flexible schedule options</li>
+                        <li>• Salary: $18/hour (within your range)</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-semibold text-gray-800 text-sm">Interview Actions</h3>
+                    
+                    <button class="w-full bg-green-600 text-white py-3 px-4 rounded-lg font-medium text-sm mb-3">Accept Interview</button>
+                    
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Reschedule</button>
+                        <button class="bg-orange-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Get Prep Help</button>
+                    </div>
+                    
+                    <button class="w-full bg-gray-200 text-gray-800 py-2 px-3 rounded-lg font-medium text-sm">Decline Interview</button>
+                </div>
+
+                <div class="mt-6 text-center">
+                    <p class="text-xs text-gray-600">We'll send calendar invite and prep materials once you accept</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 13. Application History & Analytics -->
+<div>
+    <div class="screen-label">Application Analytics</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-6">
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Your Progress</h1>
+                    <p class="text-gray-600 text-sm">See how your automated job search is performing</p>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-green-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">This Week's Activity</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <div class="text-xl font-bold text-blue-600">23</div>
+                            <div class="text-xs text-gray-600">Jobs Applied</div>
+                        </div>
+                        <div>
+                            <div class="text-xl font-bold text-green-600">5</div>
+                            <div class="text-xs text-gray-600">Responses</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-3 mb-6">
+                    <h3 class="font-semibold text-gray-800 text-sm">Recent Applications</h3>
+                    
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-medium text-gray-800 text-sm">Customer Service Rep</h4>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Interview</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">TechCorp Inc. • Applied 3 days ago</p>
+                        <p class="text-xs text-gray-500">Response rate: 22% • Match score: 95%</p>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-medium text-gray-800 text-sm">Data Entry Specialist</h4>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Pending</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">DataCorp • Applied 1 day ago</p>
+                        <p class="text-xs text-gray-500">Avg response time: 5 days • Match score: 88%</p>
+                    </div>
+
+                    <div class="bg-white border border-gray-200 rounded-lg p-3">
+                        <div class="flex justify-between items-start mb-1">
+                            <h4 class="font-medium text-gray-800 text-sm">Virtual Assistant</h4>
+                            <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">Not Selected</span>
+                        </div>
+                        <p class="text-xs text-gray-600 mb-2">StartupCo • Applied 1 week ago</p>
+                        <p class="text-xs text-gray-500">Feedback: Position filled • Match score: 76%</p>
+                    </div>
+                </div>
+
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">Success Insights</h3>
+                    <ul class="space-y-1 text-xs text-gray-700">
+                        <li>• Remote positions have 40% higher response rate</li>
+                        <li>• Customer service roles show best match compatibility</li>
+                        <li>• Applications sent Tuesday-Thursday perform better</li>
+                        <li>• Companies with 50+ employees respond faster</li>
+                    </ul>
+                </div>
+
+                <div class="space-y-3">
+                    <h3 class="font-semibold text-gray-800 text-sm">Optimize Your Search</h3>
+                    
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
+                        <h4 class="font-medium text-gray-800 text-sm mb-1">Recommendation</h4>
+                        <p class="text-xs text-gray-700 mb-2">Consider adding "Administrative Assistant" to your job types - 85% match with your skills</p>
+                        <button class="bg-yellow-600 text-white px-3 py-1 rounded-lg text-xs font-medium">Add Job Type</button>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-6">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium text-sm">Export Report</button>
+                    <button class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium text-sm">Adjust Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 14. Help & Support for Accessibility -->
+<div>
+    <div class="screen-label">Accessibility Help</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-6">
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Help & Support</h1>
+                    <p class="text-gray-600 text-sm">Get assistance with using the platform</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Voice Commands</h2>
+                                <p class="text-gray-600 text-xs">Learn voice navigation</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Start Voice Tutorial</button>
+                    </div>
+
+                    <div class="bg-green-50 border border-green-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Screen Reader Guide</h2>
+                                <p class="text-gray-600 text-xs">Setup and optimization tips</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-2 px-3 rounded-lg font-medium text-sm">View Guide</button>
+                    </div>
+
+                    <div class="bg-purple-50 border border-purple-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Live Support</h2>
+                                <p class="text-gray-600 text-xs">Talk to accessibility expert</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Call Now</button>
+                    </div>
+
+                    <div class="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="font-semibold text-gray-800">Interview Prep</h2>
+                                <p class="text-gray-600 text-xs">Accessibility-focused preparation</p>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Start Prep</button>
+                    </div>
+                </div>
+
+                <div class="mt-6">
+                    <h3 class="font-semibold text-gray-800 mb-3 text-sm">Quick Help</h3>
+                    <div class="space-y-2">
+                        <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">
+                            <span class="text-sm font-medium text-gray-800">How does automatic job application work?</span>
+                        </button>
+                        <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">
+                            <span class="text-sm font-medium text-gray-800">Can I control which jobs get applied to?</span>
+                        </button>
+                        <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">
+                            <span class="text-sm font-medium text-gray-800">What accessibility features are included?</span>
+                        </button>
+                        <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg hover:bg-gray-50">
+                            <span class="text-sm font-medium text-gray-800">How to prepare for video interviews?</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-gray-50 border border-gray-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-800 mb-2 text-sm">Emergency Contact</h3>
+                    <p class="text-xs text-gray-600 mb-3">Need immediate help with accessibility or technical issues?</p>
+                    <button class="w-full bg-red-600 text-white py-2 px-3 rounded-lg font-medium text-sm">Contact Emergency Support</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 15. Voice Control Interface -->
+<div>
+    <div class="screen-label">Voice Control Interface</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6">
+                <div class="text-center mb-6">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Voice Control Active</h1>
+                    <p class="text-gray-600 text-sm">Speak naturally to navigate and control the app</p>
+                </div>
+
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-6">
+                    <div class="flex items-center mb-2">
+                        <div class="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                        <span class="text-sm font-medium text-green-800">Listening...</span>
+                    </div>
+                    <p class="text-sm text-gray-700">Say "Help" to hear available commands</p>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 text-sm">Quick Voice Commands</h3>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button class="bg-blue-100 border border-blue-300 rounded-lg p-3 text-center">
+                                <div class="text-sm font-medium text-blue-800">"Check Status"</div>
+                                <div class="text-xs text-blue-600">View applications</div>
+                            </button>
+                            <button class="bg-green-100 border border-green-300 rounded-lg p-3 text-center">
+                                <div class="text-sm font-medium text-green-800">"New Interview"</div>
+                                <div class="text-xs text-green-600">Check interviews</div>
+                            </button>
+                            <button class="bg-purple-100 border border-purple-300 rounded-lg p-3 text-center">
+                                <div class="text-sm font-medium text-purple-800">"Pause Search"</div>
+                                <div class="text-xs text-purple-600">Stop automation</div>
+                            </button>
+                            <button class="bg-orange-100 border border-orange-300 rounded-lg p-3 text-center">
+                                <div class="text-sm font-medium text-orange-800">"Get Help"</div>
+                                <div class="text-xs text-orange-600">Voice assistance</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <h3 class="font-semibold text-gray-800 mb-2 text-sm">Recent Voice Actions</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">"Check my applications"</span>
+                                <span class="text-gray-500">2 min ago</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">"Read new notifications"</span>
+                                <span class="text-gray-500">5 min ago</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-700">"Update preferences"</span>
+                                <span class="text-gray-500">1 hour ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                        <h3 class="font-semibold text-gray-800 mb-2 text-sm">Voice Tips</h3>
+                        <ul class="space-y-1 text-xs text-gray-700">
+                            <li>• Speak clearly and at normal pace</li>
+                            <li>• Use simple, direct commands</li>
+                            <li>• Say "Repeat" to hear something again</li>
+                            <li>• Say "Back" to go to previous screen</li>
+                            <li>• Say "Help" for full command list</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-8">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium text-sm">Voice Settings</button>
+                    <button class="flex-1 bg-red-600 text-white py-3 px-4 rounded-lg font-medium text-sm">Turn Off Voice</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 16. Settings & Preferences -->
+<div>
+    <div class="screen-label">Settings & Preferences</div>
+    <div class="phone-frame">
+        <div class="phone-screen">
+            <div class="status-bar">
+                <span>9:41</span>
+                <span>●●●</span>
+                <span>100%</span>
+            </div>
+            <div class="screen-content p-6 scrollbar-hide">
+                <div class="mb-6">
+                    <h1 class="text-xl font-bold text-gray-800 mb-2">Settings</h1>
+                    <p class="text-gray-600 text-sm">Customize your experience and automation</p>
+                </div>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 text-sm">Automation Control</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">Auto Job Search</div>
+                                    <div class="text-xs text-gray-600">Automatically find and apply to jobs</div>
+                                </div>
+                                <div class="w-12 h-6 bg-green-500 rounded-full relative">
+                                    <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">Application Approval</div>
+                                    <div class="text-xs text-gray-600">Require approval for high-priority jobs</div>
+                                </div>
+                                <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                                    <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">Daily Notifications</div>
+                                    <div class="text-xs text-gray-600">Daily summary of activity</div>
+                                </div>
+                                <div class="w-12 h-6 bg-green-500 rounded-full relative">
+                                    <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 text-sm">Accessibility Settings</h3>
+                        <div class="space-y-3">
+                            <div class="p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm mb-2">Interface Mode</div>
+                                <select class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                                    <option selected>Audio-First Interface</option>
+                                    <option>Visual Interface</option>
+                                    <option>Mixed Interface</option>
+                                </select>
+                            </div>
+
+                            <div class="p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm mb-2">Voice Speed</div>
+                                <select class="w-full p-2 border border-gray-300 rounded-lg text-sm">
+                                    <option>Slow</option>
+                                    <option selected>Normal</option>
+                                    <option>Fast</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">High Contrast Mode</div>
+                                    <div class="text-xs text-gray-600">Enhanced visual contrast</div>
+                                </div>
+                                <div class="w-12 h-6 bg-gray-300 rounded-full relative">
+                                    <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 left-0.5"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between p-3 bg-white border border-gray-200 rounded-lg">
+                                <div>
+                                    <div class="font-medium text-gray-800 text-sm">Extended Timeouts</div>
+                                    <div class="text-xs text-gray-600">More time for responses</div>
+                                </div>
+                                <div class="w-12 h-6 bg-green-500 rounded-full relative">
+                                    <div class="w-5 h-5 bg-white rounded-full absolute top-0.5 right-0.5"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 text-sm">Job Search Settings</h3>
+                        <div class="space-y-3">
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Update Job Preferences</div>
+                                <div class="text-xs text-gray-600">Modify job types, location, salary</div>
+                            </button>
+
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Blocked Companies</div>
+                                <div class="text-xs text-gray-600">Manage company blacklist</div>
+                            </button>
+
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Application Frequency</div>
+                                <div class="text-xs text-gray-600">Currently: Moderate (10-20/week)</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 text-sm">Account & Privacy</h3>
+                        <div class="space-y-3">
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Update Resume</div>
+                                <div class="text-xs text-gray-600">Edit your resume information</div>
+                            </button>
+
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Privacy Settings</div>
+                                <div class="text-xs text-gray-600">Control data sharing</div>
+                            </button>
+
+                            <button class="w-full text-left p-3 bg-white border border-gray-200 rounded-lg">
+                                <div class="font-medium text-gray-800 text-sm">Export Data</div>
+                                <div class="text-xs text-gray-600">Download your information</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-3 mt-8">
+                    <button class="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg font-medium text-sm">Reset to Defaults</button>
+                    <button class="flex-1 bg-blue-600 text-white py-3 px-4 rounded-lg font-medium text-sm">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+</body>
+</html>
